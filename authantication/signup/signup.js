@@ -1,6 +1,6 @@
 var userAccounts = [];
 
-var signup = function () {
+function signup() {
     var name = document.getElementById('name');
     var email = document.getElementById('email');
     var password = document.getElementById('password');
@@ -77,13 +77,15 @@ var signup = function () {
                 alert.innerHTML = msg;
                 console.log("The email address is already in use by another account");
                 emailMatch = true;
+                return;
             }
-            else {
-                userAccounts.push({ "name": name.value, "email": email.value, "password": password.value });
-                setItems();
-                window.location.replace('file:///D:/js%20applications/todo-app/authantication/login/login.html');
-            }
-           
+            
+        }
+        if(emailMatch === false){
+            userAccounts.push({ "name": name.value, "email": email.value, "password": password.value });
+            setItems();
+            window.location.replace('file:///D:/js%20applications/todo-app/authantication/login/login.html');
+            return;
         }
         alert.style.display = "none";
         name.value = "";
