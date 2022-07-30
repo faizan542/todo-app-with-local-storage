@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="todo.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-
 </head>
 
 <body>
@@ -19,6 +18,40 @@
             <p class="btn btn-outline-danger" onclick="logout()">Logout</p>
         </div>
     </div>
+
+    <div class="container py-3">
+        <form action="#">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alert"></div>
+            <label class="form-label">Todo Title</label>
+            <input class="form-control" type="text" id="todo-title">
+
+            <label class="form-label">Description</label>
+            <textarea class="form-control" id="todo-text" rows="3"></textarea>
+
+            <button class="btn btn-primary my-2" id="add-btn" onclick="addTodos()">ADD</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Your Todos</h2>
+        <hr>
+        <div id="todos">
+            <div id="todo">
+                <p class="todo-counter">1</p>
+                <p class="todo-title fw-bold fst-italic">Hello World</p>
+                <p class="todo-text fw-semibold">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis
+                    labore harum
+                    debitis consectetur veritatis autem quasi iure aspernatur optio nemo, ratione ea fugit et odit
+                    maxime hic distinctio! Ea, a.</p>
+                <button class="btn btn-danger">Delete</button>
+                <button class="btn btn-primary">Edit</button>
+            </div>
+        </div>
+
+    </div>
+
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
