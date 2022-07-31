@@ -22,36 +22,27 @@ function logout() {
 
 
 var addBtn = document.getElementById('add-btn');
-var addTodoTitle = document.getElementById('todo-title');
-var addTodoText = document.getElementById('todo-text');
+var addTodoTitle = document.getElementById('todo_title');
+var addTodoText = document.getElementById('todo_text');
 var alerts = document.getElementById('alert');
 var msg = "";
 
 var todoArray = [];
-var todoObj = {
-    title: addTodoTitle.value,
-    text: addTodoText.value
-};
 
 function addTodos() {
     if (addTodoTitle.value === "" || addTodoText === "") {
+
         alerts.style.display = "block";
         msg = "Add title and Description";
         alerts.innerHTML = msg;
+        return;
     }
     else {
+        todoArray.push({ title: addTodoTitle.value, text: addTodoText.value })
+        alerts.style.display = "none"
         getInfo.todos = todoArray;
-        todoArray.push(todoObj);
-        localStorage.setItem('todos', JSON.stringify(todoArray));
+        localStorage.setItem('UserAccounts', JSON.stringify(userAccounts));
         showTodos();
-    }
-
-    var todos = localStorage.getItem('todos');
-    if (todos === null) {
-        todoArray = [];
-    }
-    else {
-        todoArray = JSON.parse(todos);
     }
     addTodoTitle.value = "";
     addTodoText.value = "";
@@ -60,18 +51,17 @@ function addTodos() {
 //---------------------- showTodos function--------------------------------
 
 function showTodos() {
-    var todos = localStorage.getItem('todos');
-    if (todos === null) {
+    var todos = getInfo.todos;
+    todoArray = todos;
+    if (!todoArray) {
         todoArray = [];
-    }
-    else {
-        todoArray = JSON.parse(todos);
     }
 
     var todosDiv = "";
+
     todoArray.forEach(function (element, index) {
         todosDiv += `
-        <div id="todo">
+        <div id="todo" class="py-3">
                 <p class="todo-counter">${index + 1}</p>
                 <p class="todo-title fw-bold fst-italic">${element.title}</p>
                 <p class="todo-text fw-semibold">${element.text}</p>
