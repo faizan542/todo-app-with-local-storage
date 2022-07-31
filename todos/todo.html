@@ -20,32 +20,23 @@
     </div>
 
     <div class="container py-3">
-        <form action="#">
-            <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alert"></div>
-            <label class="form-label">Todo Title</label>
-            <input class="form-control" type="text" id="todo-title">
 
-            <label class="form-label">Description</label>
-            <textarea class="form-control" id="todo-text" rows="3"></textarea>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alert"></div>
+        <label class="form-label">Todo Title</label>
+        <input class="form-control" type="text" id="todo-title">
 
-            <button class="btn btn-primary my-2" id="add-btn" onclick="addTodos()">ADD</button>
-        </form>
+        <label class="form-label">Description</label>
+        <textarea class="form-control" id="todo-text" rows="3"></textarea>
+
+        <button class="btn btn-primary my-2" id="add-btn" onclick="addTodos()">ADD</button>
+        
     </div>
 
     <div class="container">
         <h2>Your Todos</h2>
         <hr>
         <div id="todos">
-            <div id="todo">
-                <p class="todo-counter">1</p>
-                <p class="todo-title fw-bold fst-italic">Hello World</p>
-                <p class="todo-text fw-semibold">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis
-                    labore harum
-                    debitis consectetur veritatis autem quasi iure aspernatur optio nemo, ratione ea fugit et odit
-                    maxime hic distinctio! Ea, a.</p>
-                <button class="btn btn-danger">Delete</button>
-                <button class="btn btn-primary">Edit</button>
-            </div>
+
         </div>
 
     </div>
