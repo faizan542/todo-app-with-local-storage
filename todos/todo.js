@@ -81,3 +81,35 @@ function showTodos() {
     }
 }
 showTodos()
+
+
+// ----------------------------Deleting Todo Function-----------------------------------
+function deleteTodo(index) {
+    getInfo.todos = todoArray;
+    todoArray.splice(index, 1);
+    localStorage.setItem('UserAccounts', JSON.stringify(userAccounts));
+    showTodos()
+}
+
+// =========================Edit Todo Function------------------------------------------
+function editTodo(index) {
+    getInfo.todos = todoArray;
+    if (addTodoTitle.value !== "" || addTodoText.value !== "") {
+        alerts.style.display = "block";
+        msg = "Please clear the form first";
+        alerts.innerHTML = msg;
+        return;
+    }
+    else {
+        alerts.style.display = "none";
+    }
+    // console.log(todoArray);
+
+    todoArray.findIndex((element) => {
+        addTodoTitle.value = element.title;
+        addTodoText.value = element.text;
+    })
+    todoArray.splice(index, 1);
+    localStorage.setItem('UserAccounts', JSON.stringify(userAccounts));
+    showTodos();
+}
