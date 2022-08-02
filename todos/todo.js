@@ -17,7 +17,7 @@ userInfo.innerHTML = getInfo.name;
 
 function logout() {
     localStorage.removeItem('loggedInUser');
-    window.location.replace('file:///D:/js%20applications/todo-app/authantication/login/login.html');
+    window.location.replace('../authantication/login/login.html');
 }
 
 
@@ -66,7 +66,7 @@ function showTodos() {
                 <p class="todo-title fw-bold fst-italic">${element.title}</p>
                 <p class="todo-text fw-semibold">${element.text}</p>
                 <button id="${index}" onclick="deleteTodo(this.id)" class="btn btn-danger">Delete</button>
-                <button id="${index}" onclick="editTodo(this.id)" class="btn btn-primary">Edit</button>
+                <button  onclick="openEditModal(this)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_form" >Edit</button>
             </div>
         </div>
         `;
@@ -82,7 +82,6 @@ function showTodos() {
 }
 showTodos()
 
-
 // ----------------------------Deleting Todo Function-----------------------------------
 function deleteTodo(index) {
     getInfo.todos = todoArray;
@@ -92,24 +91,27 @@ function deleteTodo(index) {
 }
 
 // =========================Edit Todo Function------------------------------------------
-function editTodo(index) {
-    getInfo.todos = todoArray;
-    if (addTodoTitle.value !== "" || addTodoText.value !== "") {
-        alerts.style.display = "block";
-        msg = "Please clear the form first";
-        alerts.innerHTML = msg;
-        return;
-    }
-    else {
-        alerts.style.display = "none";
-    }
-    // console.log(todoArray);
 
-    todoArray.findIndex((element) => {
-        addTodoTitle.value = element.title;
-        addTodoText.value = element.text;
-    })
-    todoArray.splice(index, 1);
+var editTodoTitle = document.getElementById('edit_title');
+var editTodoText = document.getElementById('edit_text');
+let currentIndex;
+let myVal;
+
+function openEditModal(e) {
+    for (var i = 0; i < todoArray.length; i++) {
+        if (todoArray[i].title === e.parentNode.childNodes[3].innerHTML || todoArray[i].text === e.parentNode.childNodes[4].innerHTML ) {
+            editTodoTitle.value = todoArray[i].title;
+            editTodoText.value = todoArray[i].text;
+            currentIndex = i;
+            myVal = e;
+        }
+    }
+}
+
+function editMyTodo() {
+    todoArray.splice(currentIndex, 1, { title: editTodoTitle.value, text: editTodoText.value });
+    getInfo.todos = todoArray;
+    myVal.parentNode.childNodes[3].innerHTML = editTodoTitle.value;
+    myVal.parentNode.childNodes[4].innerHTML = editTodoText.value;
     localStorage.setItem('UserAccounts', JSON.stringify(userAccounts));
-    showTodos();
 }
