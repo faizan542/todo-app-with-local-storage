@@ -30,7 +30,7 @@ var msg = "";
 var todoArray = [];
 
 function addTodos() {
-    if (addTodoTitle.value === "" || addTodoText === "") {
+    if (addTodoTitle.value === "" || addTodoText.value === "") {
 
         alerts.style.display = "block";
         msg = "Add title and Description";
@@ -61,10 +61,10 @@ function showTodos() {
 
     todoArray.forEach(function (element, index) {
         todosDiv += `
-        <div id="todo" class="py-3">
+        <div id="todo" class="py-3 my-3 container">
                 <p class="todo-counter">${index + 1}</p>
-                <p class="todo-title fw-bold fst-italic">${element.title}</p>
-                <p class="todo-text fw-semibold">${element.text}</p>
+                <p class="todo-title">${element.title}</p>
+                <p class="todo-text">${element.text}</p>
                 <button id="${index}" onclick="deleteTodo(this.id)" class="btn btn-danger">Delete</button>
                 <button  onclick="openEditModal(this)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_form" >Edit</button>
             </div>
@@ -96,22 +96,24 @@ var editTodoTitle = document.getElementById('edit_title');
 var editTodoText = document.getElementById('edit_text');
 let currentIndex;
 let myVal;
-
+let mySecVal;
 function openEditModal(e) {
     for (var i = 0; i < todoArray.length; i++) {
-        if (todoArray[i].title === e.parentNode.childNodes[3].innerHTML || todoArray[i].text === e.parentNode.childNodes[4].innerHTML ) {
+        if (todoArray[i].title === e.parentNode.childNodes[3].innerHTML || todoArray[i].text === e.parentNode.childNodes[5].innerHTML ) {
             editTodoTitle.value = todoArray[i].title;
             editTodoText.value = todoArray[i].text;
             currentIndex = i;
             myVal = e;
+            mySecVal = e;
+            // console.log( e.parentNode.childNodes[5])
         }
     }
-}
+};
 
 function editMyTodo() {
     todoArray.splice(currentIndex, 1, { title: editTodoTitle.value, text: editTodoText.value });
     getInfo.todos = todoArray;
     myVal.parentNode.childNodes[3].innerHTML = editTodoTitle.value;
-    myVal.parentNode.childNodes[4].innerHTML = editTodoText.value;
+    mySecVal.parentNode.childNodes[5].innerHTML = editTodoText.value;
     localStorage.setItem('UserAccounts', JSON.stringify(userAccounts));
-}
+};
