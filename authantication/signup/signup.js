@@ -84,7 +84,7 @@ function signup() {
         if(emailMatch === false){
             userAccounts.push({ "name": name.value, "email": email.value, "password": password.value });
             setItems();
-            window.location.replace('file:///D:/js%20applications/todo-app/authantication/login/login.html');
+            window.location.replace('../login/login.html');
             return;
         }
         alert.style.display = "none";
