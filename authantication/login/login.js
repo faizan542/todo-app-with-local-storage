@@ -40,7 +40,7 @@ function login() {
                     localStorage.setItem('loggedInUser', JSON.stringify({ "email": email.value, "password": password.value }))
                     console.log("matched")
 
-                    window.location.replace('file:///D:/js%20applications/todo-app/todos/todo.html');
+                    window.location.replace('../../todos/todo.html');
                 }
 
             }
