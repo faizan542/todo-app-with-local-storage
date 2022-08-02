@@ -84,6 +84,11 @@ input:focus{
     color: white;
 }
 
+.login_btn:focus{
+    background-color: white;
+    color: black;
+}
+
 .create_new_acc_btn{
     margin-top: 45px !important;
     font-weight: 600;
