@@ -1,3 +1,128 @@
 #alert{
     display: none;
+    font-family: 'Ibarra Real Nova', serif;
+}
+
+body{
+    background-color: #dedede;
+    font-family: 'Ibarra Real Nova', serif;
+}
+
+h2, h3{
+    font-family: 'Noto Serif', serif;
+    color: #1540a1;
+}
+
+.todo_form{
+    background-color: #12005c;
+    max-width: 40%;
+    text-align: center;
+    box-shadow: 0px 0px 3px 1px #28453c;
+}
+
+@media screen and (max-width: 850px) {
+    .todo_form {
+        max-width: 70%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .todo_form {
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .todo_form {
+        max-width: 85%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .todo_form {
+        max-width: 90%;
+    }
+}
+
+input {
+    height: 30px;
+    width: 50%;
+    margin-top: 35px;
+    border: 0px;
+    background: none;
+    border-bottom: 1px solid white;
+    color: white;
+    font-size: 16px;
+}
+input:focus{
+    outline: none;
+}
+
+@media screen and (max-width: 295px) {
+    input{
+        width: 75%;
+    }
+}
+
+::placeholder{
+    color: white;
+}
+
+
+textarea{
+    height: 80px;
+    width: 50%;
+    margin-top: 35px;
+    border: 0px;
+    background: none;
+    border-bottom: 1px solid white;
+    color: white;
+    font-size: 16px;
+}
+
+textarea:focus{
+    outline: none;
+}
+
+@media screen and (max-width: 295px) {
+    textarea{
+        width: 75%;
+    }
+}
+
+.add_btn{
+    background-color: white;
+    border: none;
+    color: black;
+    font-weight: 600;
+    margin-top: 25px !important;
+}
+.add_btn:hover{
+    background-color: #12005c;
+    color: white;
+    border: 1px solid white;
+}
+
+.add_btn:focus{
+    background-color: white;
+    color: black;
+}
+
+#todo{
+    background-color: #e8e3e3;
+    box-shadow: 0px 0px 3px 1px #28453c;
+}
+
+.todo-counter{
+    font-size: 20px;
+}
+
+.todo-title{
+    font-size: 30px;
+    font-weight: 900;
+    font-family: 'Noto Serif', serif;
+}
+
+.todo-text{
+    font-size: 20px;
 }
