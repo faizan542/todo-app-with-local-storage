@@ -71,7 +71,7 @@ input:focus{
 }
 
 .signup_btn{
-    background-color: azure;
+    background-color: white;
     border: none;
     color: black;
     font-weight: 600;
@@ -79,5 +79,7 @@ input:focus{
 }
 
 .signup_btn:hover{
-    background-color: bisque;
+    background-color: #12005c;
+    border: 1px solid white;
+    color: white;
 }
